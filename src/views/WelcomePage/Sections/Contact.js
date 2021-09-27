@@ -25,11 +25,14 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
-    axios({
-      method: "POST",
-      url: "/contact",
-      data: form,
-    }).then((response) => {
+    axios(
+      {
+        method: "POST",
+        url: "/contact",
+        data: form,
+      }
+      // { headers: { "X-Requested-With": "XMLHttpRequest" } }
+    ).then((response) => {
       if (response.data.status === "Message Sent") {
         e.target.reset();
         alert("Message Sent.");
